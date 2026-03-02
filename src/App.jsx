@@ -1,40 +1,19 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import Spinner from './composants/Spinner';
-import Error from './pages/Errorpage';
-import QRCODE from './pages/Qrcode';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./composants/ThemeContext";
+import { ThemeToggle } from "./composants/QRApp";
+import QRGeneratorPage from "./pages/Qrcode";
+import Errorpage from "./pages/Errorpage";
 
-const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simule un chargement de page
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Délai de 2 secondes pour simuler le chargement
-
-    return () => clearTimeout(timer); // Nettoyer le timer lors du démontage
-  }, []);
-
+export default function App() {
   return (
-    <Router>
-      <div>
-        {loading ? (  
-          <Spinner /> // Affiche le spinner pendant le chargement
-        ) : (
-          <div>
-            {/* Contenu de la page ici */}
-            <main>
-              <Routes>
-                <Route path="/" element={<QRCODE />} />
-                <Route path="*" element={<Error />} /> {/* Route catch-all pour les pages non trouvées */}
-              </Routes>
-            </main>
-          </div>
-        )}
-      </div>
-    </Router>
+    <ThemeProvider>
+      <BrowserRouter>
+        <ThemeToggle /> {/* fixed top-right button */}
+        <Routes>
+          <Route path="/" element={<QRGeneratorPage />} />
+          <Route path="*" element={<Errorpage />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
-};
-
-export default App;
+}

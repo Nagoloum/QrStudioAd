@@ -1,10 +1,9 @@
 import React from 'react'
-import QRCodeGenerator from '../composants/QrCodeGenerator';
-
+import QRAPP from '../composants/QRApp';
 function Qrcode() {
   return (
     <div>
-        <QRCodeGenerator />
+        <QRAPP />
     </div>
   )
 }
