@@ -488,7 +488,7 @@ export function QRGeneratorPage() {
   return (
     <div style={{minHeight:"100vh",background:c.bg,paddingBottom:48,transition:"background 0.3s",position:"relative"}}>
       <QRBackground isDark={theme==="dark"} />
-      <header style={{position:"relative",zIndex:2,textAlign:"center",padding:"22px 60px 20px 16px"}}>
+      <header style={{position:"relative",zIndex:2,textAlign:"center",padding:"22px 10px 20px 10px"}}>
         <div style={{display:"inline-flex",alignItems:"center",gap:7,background:c.accentSoft,border:`1px solid ${c.accent}33`,borderRadius:100,padding:"4px 13px",marginBottom:10}}>
           <span style={{fontSize:12}}>⬛</span>
           <span style={{fontSize:11,fontWeight:700,color:c.accent,letterSpacing:"0.09em",textTransform:"uppercase"}}>QR Studio</span>
